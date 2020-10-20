@@ -3,15 +3,22 @@ using namespace std;
 
 int main()
 {
-	string str;
-	getline(cin,str);
-	int l=str.size();
-	transform(str.begin(), str.end(), str.begin(), ::tolower);
-	for(int i=0;i<l;i++)
-	{
-		if(str[i]!='a' && str[i]!='e' && str[i]!='o' && str[i]!='i' && str[i]!='u')
-		{
-			cout<<"."<<str[i];
-		}
-	}
+    string s;
+    cin>>s;
+    queue<char> q;
+    for(int i=0;i<s.length();++i)
+    {
+        char a=tolower(s[i]);
+        if(a != 'a' && a !='e' && a !='i' && a!='o' && a!='u' && a!='y' )
+        {
+            q.push(a);
+        }
+    }
+    while(!q.empty())
+    {
+        cout<<"."<<q.front();
+        q.pop();
+    }
+    return 0;
+
 }
